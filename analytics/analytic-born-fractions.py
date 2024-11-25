@@ -155,9 +155,9 @@ def f_with_err(f, ptcut, ptmin, ptmax):
     for ipdf in range(1,npdf_hess):
         LO.set_ipdf(ipdf)
         r = f(ptcut, ptmin, ptmax)
-        res[:,5] += np.square(r-central)
-    res[:,5] = np.sqrt(res[:,5])
-    res[:,6] = -res[:,5]
+        res[:,6] += np.square(r-central)
+    res[:,6] = np.sqrt(res[:,6])
+    res[:,5] = -res[:,6]
 
     # full variation
     res[:,1]=-np.sqrt(np.square(res[:,3])+np.square(res[:,5]))
@@ -191,14 +191,14 @@ for v in all_vars:
         an_x = np.linspace(100.0, 199.9, 51)
         an_q = f_with_err(fg_q_dijet,ptlead, an_x, 200.0)
         an_g = f_with_err(fg_g_dijet,ptlead, an_x, 200.0)
-        an0_q = fg_q_groom(an_x,zmax)
-        an0_g = fg_g_groom(an_x,zmax)
+        an0_q = fg_q_groom(an_x/(an_x+700.0),zmax)
+        an0_g = fg_g_groom(an_x/(an_x+700.0),zmax)
     elif v=="ptmax":
         an_x = np.linspace(150.1, 300.0, 51)
         an_q = f_with_err(fg_q_dijet,ptlead, 150.0, an_x)
         an_g = f_with_err(fg_g_dijet,ptlead, 150.0, an_x)
-        an0_q = fg_q_groom(zmin,an_x)
-        an0_g = fg_g_groom(zmin,an_x)
+        an0_q = fg_q_groom(zmin,an_x/(an_x+700.0))
+        an0_g = fg_g_groom(zmin,an_x/(an_x+700.0))
     else:
         an_x = np.linspace(0.4, 1.2, 51)
         fq = f_with_err(fg_q_dijet,np.asarray([ptlead]), 150.0, 200.0)
