@@ -94,13 +94,13 @@ with PdfPages(f'born-fractions.pdf') as pdf:
 
     for selection in ["dijet", "groom"]:
         all_vars = ["ptmin", "ptmax", "drmin"] if selection=="dijet" else ["zmin", "zmax", "drmin"]
-        all_labs = [r"$p_{t,{{\rm min}}}$", r"$p_{t,{{\rm max}}}$", r"$\Delta R_{{\rm min}}$"] if selection=="dijet" else [r"$z_{{\rm min}}$", r"$z_{{\rm max}}$", r"$\Delta R_{{\rm min}}$"]
+        all_labs = [r"$p_{t,{{\rm min}}}$ [GeV]", r"$p_{t,{{\rm max}}}$ [GeV]", r"$\Delta R_{{\rm min}}$"] if selection=="dijet" else [r"$z_{{\rm min}}$", r"$z_{{\rm max}}$", r"$\Delta R_{{\rm min}}$"]
 
         for v,l in zip(all_vars, all_labs):
             print (f"{selection=}, {v=}")
             fig, ax = plt.subplots(figsize=(4.0, 3))
 
-            ax.set_title(f'{selection} selection - '+l+' dependence')
+            ax.set_title(f'{selection} selection - '+l.removesuffix(" [GeV]")+' dependence')
 
             ax.grid(True, which='both', lw=0.5, ls=':', zorder=0)
             ax.tick_params(axis='both', which='both', direction='in', bottom=True, top=True, left=True, right=True )
@@ -156,8 +156,8 @@ with PdfPages(f'born-fractions.pdf') as pdf:
 
             legend_patches, legend_labels = ax.get_legend_handles_labels()
             
-            ax.set_ylim(0.83,0.93)
-            yt=np.linspace(0.83,0.93,11)
+            ax.set_ylim(0.798,0.962)
+            yt=np.linspace(0.8,0.96,9)
             ax.set_yticks(yt)
             ax.set_yticklabels([f'{x:g}' for x in yt])
 
@@ -182,45 +182,29 @@ with PdfPages(f'born-fractions.pdf') as pdf:
             y1=0.125
             y2=0.045
             if selection=="dijet":
-                ax.text(0.05, y1, r'anti-$k_t(R=0.4)$, $p_{t,{\rm lead}}>700$ GeV, $|y|<1.7$',  ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                ax.text(0.035, y1, r'anti-$k_t(R=0.4)$, $p_{t,{\rm lead}}>700$ GeV, $|y|<1.7$',  ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
 
                 if v=="ptmin":
-                    ax.text(0.05, y2, r'$p_{t,{\rm sublead}}<200$ GeV, $1<\Delta R<1.2$',    ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$p_{t,{\rm sublead}}<200$ GeV, $1<\Delta R<1.2$',    ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 elif v=="ptmax":
-                    ax.text(0.05, y2, r'$150<p_{t,{\rm sublead}}$ GeV, $1<\Delta R<1.2$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$150<p_{t,{\rm sublead}}$ GeV, $1<\Delta R<1.2$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 else:
-                    ax.text(0.05, y2, r'$150<p_{t,{\rm sublead}}<200$ GeV, $\Delta R<1.2$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$150<p_{t,{\rm sublead}}<200$ GeV, $\Delta R<1.2$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
             else:
-                ax.text(0.05, y1, r'anti-$k_t(R=1.2)$, $p_{t,{\rm lead}}>1$ TeV, $|y|<1.7$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                ax.text(0.035, y1, r'anti-$k_t(R=1.2)$, $p_{t,{\rm lead}}>1$ TeV, $|y|<1.7$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
 
                 if v=="zmin":
-                    ax.text(0.05, y2, r'$z_g<0.2$, $\Delta R|y|>0.8$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$z_g<0.2$, $\Delta R>0.8$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 elif v=="zmax":
-                    ax.text(0.05, y2, r'$0.1<z_g$, $\Delta R|y|>0.8$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$0.1<z_g$, $\Delta R>0.8$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 else:
-                    ax.text(0.05, y2, r'$0.1<z_g<0.2$',                ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$0.1<z_g<0.2$',             ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
 
             p,l = ax.get_legend_handles_labels()
             for pp in p: legend_patches.append(pp)
             for ll in l: legend_labels.append(ll)
-            ax.legend(legend_patches, legend_labels)
+            ax.legend(legend_patches, legend_labels, loc='upper right')
             pdf.savefig(bbox_inches='tight')
             plt.close()
 
 
-
-# 
-# reset
-# set term pdfcairo enhanced color
-# set out 'born-fractions.pdf'
-# 
-# set ylabel 'gluon fraction'
-# set grid
-# 
-# set title 'dijet selection - p_{t,max} dependence'
-# set xlabel 'p_{t,max} [GeV]'
-# 
-# plot '< mergeidx.pl -f 
-# 
-# set out
-# 
