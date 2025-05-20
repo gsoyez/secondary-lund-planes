@@ -187,7 +187,7 @@ with PdfPages(f'born-fractions.pdf') as pdf:
                 if v=="ptmin":
                     ax.text(0.035, y2, r'$p_{t,{\rm sublead}}<200$ GeV, $1<\Delta R<1.2$',    ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 elif v=="ptmax":
-                    ax.text(0.035, y2, r'$150<p_{t,{\rm sublead}}$ GeV, $1<\Delta R<1.2$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
+                    ax.text(0.035, y2, r'$p_{t,{\rm sublead}}>150$ GeV, $1<\Delta R<1.2$',   ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
                 else:
                     ax.text(0.035, y2, r'$150<p_{t,{\rm sublead}}<200$ GeV, $\Delta R<1.2$', ha='left', va='baseline', transform=ax.transAxes, fontsize=9, color='black')
             else:
