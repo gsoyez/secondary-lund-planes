@@ -1,0 +1,285 @@
+ \documentclass[a4paper,11pt]{article}
+\synctex=1
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+\RequirePackage{snapshot}  % required by bundledoc
+
+
+\usepackage{bm,amsmath,amssymb,slashed,graphicx,%
+            enumerate,alltt,xspace,multirow,xcolor,mathrsfs}
+\usepackage{fancyvrb}
+\usepackage{booktabs,tabularx}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{xspace}
+\usepackage{cancel}
+\usepackage[utf8]{inputenc} 
+\usepackage[compat=1.0.0]{tikz-feynman}
+\usepackage{scalerel}
+\usepackage{layouts}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
+\usepackage[normalem]{ulem} %% for strikeout with \sout
+
+%\usepackage{lineno}
+\usepackage{printlen}
+\usepackage{wasysym}
+% macro: can be changed.
+
+\newcommand{\re}{{\rm{Re}}}
+\newcommand{\Tr}{{\rm Tr}}
+
+\def\g{{\boldsymbol g}}
+\def\q{{\boldsymbol q}}
+\def\0{{\boldsymbol 0}}
+\def\1{{\boldsymbol 1}}
+\def\p{{\boldsymbol p}}
+\def\pbar{{\boldsymbol{\bar p}}}
+\def\bkappa{{\boldsymbol{\kappa}}}
+\def\bkappabar{{\boldsymbol{\bar \kappa}}}
+\def\l{{\boldsymbol l}}
+\def\k{{\boldsymbol k}}
+\def\t{{\boldsymbol t}}
+\def\r{{\boldsymbol r}}
+%\def\m{{\boldsymbol m}}
+%\def\n{{\boldsymbol n}}
+\def\x{{\boldsymbol x}}
+\def\y{{\boldsymbol y}}
+\def\X{{\boldsymbol X}}
+\def\Y{{\boldsymbol Y}}
+%\def\D{{\boldsymbol D}}
+\def\r{{\boldsymbol r}}
+\def\z{{\boldsymbol z}}
+\def\u{{\boldsymbol u}}
+\def\v{{\boldsymbol v}}
+\def\w{{\boldsymbol w}}
+\def\b{{\boldsymbol b}}
+\def\0{{\boldsymbol 0}}
+\def\Q{{\boldsymbol Q}}
+\def\P{{\boldsymbol P}}
+\def\X{{\boldsymbol X}}
+\def\M{{\boldsymbol M}}
+
+\newcommand{\ii}{\mathrm{i}\,}
+
+
+%%%%%%%%%% Greek alphabets
+\renewcommand\a{\alpha}
+\renewcommand\b{\beta}
+\renewcommand\d{\delta}
+\renewcommand\u{\upsilon}
+%\renewcommand\c{\chi}
+\renewcommand\j{\psi}
+\renewcommand\o{\omega}
+\newcommand\e{\epsilon}
+\newcommand\m{\mu}
+\newcommand\n{\nu}
+\newcommand\s{\sigma}
+\newcommand\f{\phi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\cV{\mathcal{V}}
+\def\cMh{\overline{\cal M}}
+\def\cG{{\cal G}}
+\def\cF{{\cal F}}
+\def\cA{{\cal A}}
+\def\cU{{\cal U}}
+\def\cP{{\cal P}}
+\def\cK{{\cal K}}
+\def\cM{{\cal M}}
+\def\cD{{\cal D}}
+\def\cT{{\cal T}}
+\def\cU{{\cal U}}
+\def\cJ{{\cal J}}
+\def\cZ{{\cal Z}}
+\def\cH{{\cal H}}
+\def\cN{{\cal N}}
+\def\cI{{\cal I}}
+\def\cR{{\cal R}}
+\def\cO{{\cal O}}
+\def\cW{{\cal W}}
+\def\cS{{\cal S}}
+\def\lg{{\langle}}
+\def\rg{{\rangle}}
+\def\bs{\boldsymbol }
+\def\beps{{\boldsymbol \epsilon}}
+\def\Tr{\text{Tr}}
+
+% Package to automatically deal with figure, table, equation etc references
+\usepackage[capitalise]{cleveref}
+% Trick from Andy Buckley (the HEP one?) to get math parts
+% of section headings to appear in a bold font whenever the
+% normal text also appears in bold
+%
+% http://tex.stackexchange.com/questions/41379/automatically-typeset-math-in-section-headings-in-bold-face
+\makeatletter
+\g@addto@macro\bfseries{\boldmath}
+\makeatother
+
+%\usepackage{showlabels}
+%\usepackage[color,notref,notcite]{showkeys}
+%\usepackage[color,notref,notcite]{showkeys}
+%\definecolor{refkey}{rgb}{1.0,0.0,0.0}
+%\definecolor{labelkey}{gray}{.75}
+\definecolor{labelkey}{rgb}{0,0.5,0.0}
+\definecolor{royalpurple}{rgb}{0.47, 0.32, 0.66}
+
+%\journalname{Eur. Phys. J. C}
+
+\usepackage{listings}
+\lstset{
+basicstyle=\ttfamily,
+columns=flexible,
+breaklines=true%
+}
+
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+\definecolor{rust}{rgb}{0.9,0.4,0.0}
+\newcommand\qg{a} % this is the label used to select either q or g initial partons
+\newcommand{\alert}[1]{{\leavevmode\color{red}#1}}
+
+% for our personal comments
+ \newcommand{\comment}[1]{\textcolor{red}{{\bf [#1]$_\text{ASO}$}}}
+ \newcommand{\aso}[1]{\commentaso{#1}}
+ \newcommand{\commentgm}[1]{\textcolor{blue}{{\bf [#1]$_\text{GM}$}}}
+  \newcommand{\gm}[1]{\commentgm {#1}}
+
+ 
+
+\allowdisplaybreaks 
+
+\newcommand{\Fmed}{F_{\rm{med}}}
+\newcommand{\TildeDeltamed}{\widetilde{\Delta}_{\rm med}}
+\newcommand{\Deltamed}{\Delta_{\rm{med}}}
+\newcommand{\qbar}{\bar q}
+
+\begin{document}
+%
+\noindent{\bf Response to the Referee Report on JHEP\_082P\_0125}
+\vspace{0.3cm}
+
+\noindent Dear Editor, 
+\vspace{0.3cm}
+
+We would like to thank the referee for their positive assessment of our work and useful suggestions. We appreciate the constructive comments, and address them one by one below. We hope that these updates suitably address the points raised by the referee.
+
+\vspace{0.3cm}
+\noindent The authors.
+
+\vspace{0.6cm}
+
+\noindent {\bf Detailed answers to the Referee:}
+\vspace{0.3cm}
+
+\noindent \textit{1. Footnote 2 and first full paragraph of page 2:
+The authors discuss the degeneracy between αs and the quark/gluon fraction of a sample. They mention a few techniques for eliminating this but do not mention recent efforts to define an IRC safe notion of jet flavor. There is some hint of this in footnote 2, but the definition they present there of “gluon-enrichment” is effectively verbatim copied from the Les Houches study of Refs. [8,9] and is almost devoid of any technical meaning. For a paper whose goal is to enrich a jet sample with “gluon” jets, the authors must provide a precise, quantifiable definition of “gluon” jet so that the results that follow can be interpreted in that context.}
+\\
+\\
+We have extended footnote 2 to include a reference to recent flavour-aware clustering algorithms. We also discuss more extensively the question of gluon-jet definition in the context of question 6 (see below).
+\\
+
+\noindent \textit{2. Footnote 3: I don’t understand what the authors mean by the statement in footnote 3 that “there are certain observables that are free of this degeneracy, e.g., ratios of energy-energy correlators.” Certainly, this cannot be strictly true, right? Ratios of energy-energy correlators may have reduced dependence on flavor fraction degeneracies because they lack direct sensitivity to soft emissions. Is that what the authors mean here? If so, it would be helpful to clarify that.
+}
+\\
+\\
+We agree that the initial formulation was unclear and overstated. For any observable, the degeneracy will eventually be lifted at some order of the perturbative expansion. For different observables, this will occur earlier in the series and hence be numerically more important. We have rephrased the footnote replacing “that are free of this degeneracy” by “where the sensitivity to this degeneracy is reduced”.
+\\
+
+\noindent \textit{3. Section 2.2: Why are the collinear leading-order results for the groomed selection not shown? At the very least, in an appendix? As the authors mention, these integrals are not that complex and just involve some logarithms and polynomials of the endpoints. These expressions are simple enough and then provide the input into the dijet selection of Eq. 2.9.
+}
+\\
+\\
+We agree with the referee’s suggestion and have added appendix A with the expressions. 
+\\
+
+\noindent\textit{4. Figure 2 is slightly confusing to me. I would naively expect that the exact order-αs result should always lie between the limits of pure quark and pure gluon, but that does not seem to be the case in all examples. Could the authors provide an explanation as to what might be happening here? Is this simply that the collinear approximation is of limited accuracy? I guess this might be related to the selection of the angular parameters $\Delta$ and $\Delta R$ in the left and central columns of this figure. $\Delta>0.8$ and $\Delta R\sim1$ seems rather large for a collinear approximation, I assume.}
+\\
+\\
+We thank the referee for pointing this out. The original version of this figure had in fact a bug in the collinear result for the dijet setup since they were generated with an older version of the code in which we did not integrate over the jet cross-section. In the new version of the figure, we find that indeed the exact result lies in between the collinear results in most cases. However, in some cases, see e.g. the $z_{\rm max}$ dependence in the groomed setup, the envelope created by the collinear results does not contain the exact result. We agree with the referee on the fact that the collinear limit, albeit a good approximation, is of limited accuracy for the selected angular parameters.  Note that we picked these values in order to match the MC plots. We have repeated this exercise for smaller jet radii and found that indeed the exact result always lies between the limits of pure quark and pure gluon. The results are discussed in Appendix B.  
+\\
+
+\noindent\textit{5. Another issue I see that isn’t addressed by the authors is the following. As they explain well, sufficiently soft emissions off of the initial particle are $\sim 90\%$ gluons (at least at leading-order). However, restricting to relatively soft emissions, on the order of $10−20\%$ of the jet $p_T$​, means that high-energy gluon jets cannot be selected with this procedure (say, gluon jets at $p_T\sim$​ TeV). Within this framework, how can such high-energy gluons be identified? This would seem to be very relevant to understand the fragmentation of such high-energy jets. It would be helpful for the authors to discuss the limitations of this method, as well.
+}
+\\
+\\
+We agree with the referee on the kinematic limitations of the dijet selection. We have added a short paragraph in the conclusions highlighting the limitations of the method when discussing MC tuning opportunities:
+\\
+
+``One should note that the dijet selection we propose necessarily sets a kinematic upper bound on the hardness of the softer jet. Thus, a limitation of the method is that it is not possible to obtain gluon-rich
+samples at the TeV scale for the expected LHC integrated luminosities without penalising
+the gluon purity of the softer jet. However, the method can be used to derive a data-based
+anchor point for gluon-initiated radiation patterns. The hope is that tuning Monte Carlo
+event generators to such a reference data sample would potentially reduce the mismodeling
+of gluon jet radiation at higher momenta.''
+
+\noindent\textit{6. There seems to be a disconnect between the analytics of section 2 and the simulation of section 3. The analytics are presented at leading order, where the flavor of a jet is simply its partonic flavor, which is fine. However, in section 3, the analysis then moves on to studying this in all-orders simulation, and, apparently, using the leading-order flavor of the desired process in simulation as the definition. As the authors are well aware, this “Monte Carlo” definition of flavor is not theoretically well-defined. Of course, the authors presented footnote 2 as a disclaimer, but with quantitative statements about jet flavor fractions made so forcefully, a more honest discussion of flavor algorithms, definitions, and IRC (un)safety of jet flavor is needed.}
+\\
+\\
+We have modified the end of the introduction to clarify that our approach is a two-step one (paragraph starting with ``With this generic picture in mind, ...''). In a first instance (section 2), we introduce novel methods to produce a gluon-enriched jet sample. This statement can be made independently of a “precise” definition of what we mean exactly by a gluon jet. We illustrate this at leading order.  In a second step, with our selection procedure, we study (section 3) the secondary Lund plane density as an observable that one can measure to characterise the radiation pattern in a gluon-enriched sample. To address the referee’s concern and bridge the gap between Sections 2 and 3 we have added all-orders results by the end of section 2.2 (starting from ``We end up this discussion..''). The latter are obtained by running a flavour-aware jet algorithm on parton-level Monte Carlo events. We see order $10\%$ variations with respect to the leading order estimate of the extracted gluon fractions. However, besides the precise numbers, they key point is that our proposed selection produces a gluon-enriched sample.
+\\
+
+\noindent\textit{7. Figure 4: This is a nice consistency check, but I’m not convinced that the agreement of these curves is because they are effectively the same jets. Have the authors made the corresponding distributions with the quark-enriched sample, $qq\to qq$? Does this exhibit significant differences? Showing such a plot would make the authors’ case much more strongly.}
+\\
+\\
+We have modified Fig 4 so as to display the primary Lund plane density of quark-initiated jets (from $qq\to qq$ scatterings) compared to the primary Lund plane density of gluon-initiated jets (from $gg\to gg$ scatterings) and the one of secondary Lund plane densities. The ratio subplot demonstrates that, for hard $k_T$ values, the ratio of gluon-like to quark-like Lund plane densities approaches a value consistent with Casimir scaling, $C_F/C_A \sim 4/9$. We have added the following paragraph in Section 3:
+\\
+
+``For reference, we also include on the right-panel the quark-initiated primary Lund jet plane density. We observe that the difference between the quark-like and gluon-like Lund jet plane densities follows Casimir scaling at higher-$k_t$ values. This further supports, with hadron-level results, that the method yields gluon-like Lund jet plane densities.''
+\\
+
+\noindent\textit{8. Figure 5: I don’t think the conclusions the authors make from this figure are necessarily sound. There, they turn on and off the partonic, perturbative splittings $g\to q\bar q$ and then plot hadron-level jet predictions. The hadron-level predictions are tuned to data with the inclusion of all relevant perturbative information, including the $g\to q\bar q$ splitting. Turning this off produces some very muddy picture of how that splitting affects tuning of hadronization parameters. I assume this is acknowledged by the authors in the off-hand statement “Although not realistic from a physical point of view,” but if it is not realistic physically, I am unsure how one can ascribe any meaning to it then. Can the authors clarify how conclusions can be drawn from this figure?}
+\\
+\\
+The intention of this exercise was to demonstrate that the unphysical removal of  $g\to q\bar{q}$ splittings would not lead to a decrease of emissions in the secondary Lund jet plane density. If the quark-dominated secondary Lund planes had a significant contribution, we would have observed a different effect on the net density of emissions when comparing it with the effect on the primary Lund plane densities. This discussion is present in the paper draft, in the penultimate paragraph of Section 3.
+
+Indeed, we agree that it is not possible to assign an explicit implication in terms of constraints via tuning. We have removed the following clause in Section 3 of the new paper draft:
+\\
+
+``and that the phenomenological implications of $g\to q\bar{q}$ splittings for gluon-initiated jets can also be constrained via the secondary Lund jet plane density.”
+\\
+
+\noindent\textit{9. Figure 6: As discussed in point 7 above, what is the spread of primary Lund plane emissions for the $qq\to qq$ events? Does this have the same spread as $gg\to gg$? This is an important baseline for understanding what the spread might mean.
+}
+\\
+\\
+We have a new panel in Figure 6 that makes a similar comparison for quark-initiated primary Lund planes. We observe that there is a smaller spread for the predictions for quark-initiated jets than for gluon-initiated ones (secondary or primary Lund planes), qualitatively in agreement with what is observed in earlier comparisons of jet substructure observables.
+
+We have added the following text to the draft:
+\\
+
+``Repeating the same exercise, but for a slice of the primary Lund density of quark-initiated jets, we observe that the spread among the different predictions is smaller than for gluon-initiated jets. This is consistent with the initial findings reported in Refs.[8,9]. This further highlights the need for providing such a reference pure sample of gluon-initiated final-state radiation constraints.''
+
+\noindent\textit{10. There is a failed citation in footnote 3.}
+\\
+\\
+We have fixed this.
+\\
+
+\noindent\textit{11. Top of page 7: the authors mention “flavor taggers” but provide no references.
+}
+\\
+\\
+We have some representative references.
+\\
+
+\noindent\textit{12. After Eq. 2.7: The authors mention Altarelli-Parisi splitting functions but neither provide references nor simply write them down. Correspondingly, the authors do not mention the number of active quark flavors that they use in their calculations (presumably, $n_f=5$). Similarly, I do not think the authors define $C_F$​ and $C_A$​, even though in general they are well known.}
+\\
+\\
+We have incorporated the definition of the Altarelli-Parisi splitting functions together with our values for the QCD parameters in Appendix A.
+\\
+
+\noindent\textit{13. Final paragraph of conclusions: there is no reference to Rivet.}
+\\
+\\
+We have added a reference to Rivet.
+\\
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
