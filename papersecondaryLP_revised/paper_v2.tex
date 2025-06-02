@@ -64,7 +64,24 @@ Campus de Fuentenueva, E-18071 Granada, Spain}
 
 \date{Received: date / Accepted: \today}
 
-\abstract{We propose a new strategy to obtain a high-purity sample of gluon-initiated jets at the LHC. Our approach, inspired by the Lund jet plane picture, is to perform a dijet selection where the two jets are collinear to each other and their momentum fraction share is highly asymmetric, and to measure the primary Lund plane density of emissions of the subleading jet. The subleading jet in this topology is practically equivalent to a secondary Lund jet plane. We demonstrate by means of fixed-order calculations that such a simple setup yields gluon jet fractions of around 90\% for the subleading jet for both quark- and gluon-initiated jets. This observation is confirmed using hadron-level Monte Carlo generated events. We also show that the extracted gluon purities are highly resilient to the overall colour structure of the event, to the flavour of the hard-scattering process, and to the parton distribution functions. This strategy is well-suited for constraining the radiation pattern of gluon-initiated jets using a set of fiducial cuts that can readily be tested at the LHC, without relying on taggers or statistical demixing.}
+\abstract{We propose a new strategy to obtain a high-purity sample of
+  gluon-initiated jets at the LHC. Our approach, inspired by the Lund
+  jet plane picture, is to perform a dijet selection where the two
+  jets are collinear to each other and their momentum fraction share
+  is highly asymmetric, and to measure the primary Lund plane density
+  of emissions of the subleading jet. The subleading jet in this
+  topology is practically equivalent to a secondary Lund jet plane. We
+  demonstrate by means of fixed-order calculations that such a simple
+  setup yields (Born-level) gluon jet fractions of around 90\% for the
+  subleading jet for both quark- and gluon-initiated jets. This
+  observation is confirmed using hadron-level Monte Carlo generated
+  events. We also show that the extracted gluon purities are highly
+  resilient to the overall colour structure of the event, to the
+  flavour of the hard-scattering process, and to the parton
+  distribution functions. This strategy is well-suited for
+  constraining the radiation pattern of gluon-initiated jets using a
+  set of fiducial cuts that can readily be tested at the LHC, without
+  relying on taggers or statistical demixing.}
 
 \begin{document}
 \maketitle
@@ -75,7 +92,7 @@ Jets, the collimated showers of particles produced in high-energy particle colli
 
 Although jet physics can be understood analytically to a great extent, in practice Monte Carlo (MC) event simulation is often used for phenomenological and experimental applications. For jet physics specifically, MC event simulation provides the baseline in searches for new physics, is a key ingredient in the calibration and flavour tagging of such jets, and is used for precision tests of Quantum Chromodynamics (QCD)~\cite{Campbell:2022qmc}.
 
-A longstanding problem in MC event generators is the correct description of the fragmentation of gluon-initiated jets. As a paradigmatic example, the leading systematic uncertainty in the jet energy scale at the LHC is the MC uncertainty on the gluon-jet response~\cite{ATLAS:2020cli,CMS:2016lmd, CMS-DP-2020-019}.\footnote{Recently, the ATLAS collaboration has published a series of paper in which they investigate the origin of the gluon-jet response uncertainty in MCs~\cite{ATL-PHYS-PUB-2022-021,ATLAS:2024kkj, ATLAS:2024png}. Their results indicate that the baryon fraction inside jets play a significant role in their detector response.}  Along these lines, Refs.~\cite{Andersen:2016qtm, Gras:2017jty} showed that there is a much wider spread in predictions for gluon showers than for quark fragmentation for a number of jet substructure observables. This is mostly because MC generators are tuned to describe hadronic final states produced in $e^+e^-$ collisions as a baseline, so that quark radiation patterns are much more strongly constrained than gluon ones. The mismodeling of gluon jet showers trickles down to uncertainties in other quantities at the LHC as well as the size of the calibration factors for machine-learning-based quark-gluon discriminators, which rely on MC generated events for training~\cite{ATLAS:2014vax}. Having access to a gluon-enriched sample would reduce these uncertainties.\footnote{Throughout this paper we use a definition of gluon-enrichment in the spirit of Ref.~\cite{Andersen:2016qtm, Gras:2017jty}, namely ``phase-space region (as defined by an unambiguous hadronic fiducial cross section measurement) that yields an enriched sample of gluons (as interpreted by some suitable, though fundamentally ambiguous, criterion)". We also note that there have been extensive recent developments on flavour-aware jet clustering algorithms~\cite{Caletti:2022hnc,Czakon:2022wam,Gauld:2022lem} attempting at providing a more practical definition of the flavour of a jet. We will comment on this when relevant in this paper.}
+A longstanding problem in MC event generators is the correct description of the fragmentation of gluon-initiated jets. As a paradigmatic example, the leading systematic uncertainty in the jet energy scale at the LHC is the MC uncertainty on the gluon-jet response~\cite{ATLAS:2020cli,CMS:2016lmd, CMS-DP-2020-019}.\footnote{Recently, the ATLAS collaboration has published a series of paper in which they investigate the origin of the gluon-jet response uncertainty in MCs~\cite{ATL-PHYS-PUB-2022-021,ATLAS:2024kkj, ATLAS:2024png}. Their results indicate that the baryon fraction inside jets play a significant role in their detector response.}  Along these lines, Refs.~\cite{Andersen:2016qtm, Gras:2017jty} showed that there is a much wider spread in predictions for gluon showers than for quark fragmentation for a number of jet substructure observables. This is mostly because MC generators are tuned to describe hadronic final states produced in $e^+e^-$ collisions as a baseline, so that quark radiation patterns are much more strongly constrained than gluon ones. The mismodeling of gluon jet showers trickles down to uncertainties in other quantities at the LHC as well as the size of the calibration factors for machine-learning-based quark-gluon discriminators, which rely on MC generated events for training~\cite{ATLAS:2014vax}. Having access to a gluon-enriched sample would reduce these uncertainties.\footnote{Throughout this paper we use a definition of gluon-enrichment in the spirit of Ref.~\cite{Andersen:2016qtm, Gras:2017jty}, namely ``phase-space region (as defined by an unambiguous hadronic fiducial cross section measurement) that yields an enriched sample of gluons (as interpreted by some suitable, though fundamentally ambiguous, criterion)". We also note that there have been extensive recent developments on flavour-aware jet clustering algorithms~\cite{Caletti:2022hnc,Czakon:2022wam,Gauld:2022lem,Caola:2023wpj} attempting at providing a more practical definition of the flavour of a jet. We will comment on this when relevant in this paper.}
 
 A high-purity gluon-initiated jet sample would also facilitate the extraction of the strong coupling $\alpha_s$ from jet substructure observables at the LHC. This is so since at lowest order in perturbation theory jet substructure observables are sensitive to $\alpha_s C_i$, where $C_i$ is the colour charge of the emitter. In other words, there is a degeneracy between $\alpha_s$ and the quark versus gluon fraction of jets~\cite{Proceedings:2018jsb}.\footnote{There are different ways of eliminating this degeneracy. On the one hand, there are certain observables where the sensitivity to this degeneracy is reduced, e.g. ratios of energy-energy correlators~\cite{Chen:2020vvp,Chen:2024nyc,CMS:2024mlf,Lee:2024esz}. Another way is to calculate the quark and gluon fractions using perturbative QCD as was done in Ref.~\cite{Hannesdottir:2022rsl} for the SoftDrop jet mass, or to include subleading corrections which partially break the degeneracy.} More generally, a strategy that allows for constraining final-state radiation of gluon-initiated jets in an isolated way would be beneficial for jet substructure studies and measurements at the LHC.
 
@@ -278,7 +295,9 @@ Regarding the agreement between the analytic estimate in the collinear limit and
 
 Because the dijet selection approach has the possibility of branching out to other applications beyond the secondary Lund jet plane, we will mainly focus on the latter for the remainder of this paper. The conclusions from the hadron-level simulation results discussed in the next section also hold for the SoftDrop and trimming setups. 
 
- We end up this discussion by comparing our first-principle estimates for the gluon purities, based on a one-emission picture, with an all-orders, infrared and collinear safe result obtained with a recently introduced flavour-aware jet algorithm (IFN)~\cite{Caola:2023wpj}. This comparison is meant to quantify the impact of corrections beyond $\mathcal{O}(\alpha_s)$ on the gluon purity. The results are presented in Table~\ref{table:ifn-results}. To obtain the IFN gluon purities, we generate jet events with \py at parton-level either for a fixed Born-channel ($qq\to qq$ or $gg\to gg$) or considering all $2\to 2$ QCD scatterings. We then perform two types of event selections: (i) inclusive anti-$k_t$ jets with $R=0.4$ and $p_t>150$ GeV and (ii) the dijet selection introduced in Sec.~\ref{sec:enhance-gfrac}. For each selection, we apply the IFN algorithm on a given jet and record the number of gluon-tagged jets. 
+We end up this discussion by comparing our first-principle estimates
+for the gluon purities, based on a one-emission picture, with an
+all-orders, infrared and collinear safe definition of jet flavour obtained with a recently-introduced flavour-aware jet algorithm (IFN)~\cite{Caola:2023wpj}. This comparison is meant to quantify the impact of corrections beyond $\mathcal{O}(\alpha_s)$ on the gluon purity. The results are presented in Table~\ref{table:ifn-results}. To obtain the IFN gluon purities, we generate jet events with \py at parton-level either for a fixed Born-channel ($qq\to qq$ or $gg\to gg$) or considering all $2\to 2$ QCD scatterings. We then perform two types of event selections: (i) inclusive anti-$k_t$ jets with $R=0.4$ and $p_t>150$ GeV and (ii) the dijet selection introduced in Sec.~\ref{sec:enhance-gfrac}. For each selection, we apply the IFN algorithm on a given jet and record the number of gluon-tagged jets. 
 
 Let us first discuss the results obtained for the inclusive jet selection. Trivially, the gluon at Born-level is either 0 or 100\% when selecting $qq\to qq$ and $gg\to gg$ hard scattering process, respectively. At all orders, we observe that the gluon fraction is around 5\% for the $qq\to qq$ Born-level process. This originates from multi-jet events triggered by hard gluon emissions. Similarly, the gluon fraction is degraded at all-orders for the $gg\to gg$ process due to relatively hard $g\to q\bar q$ splittings that generate resolved quark-initiated jets.   
 
@@ -377,21 +396,26 @@ GS and ASO thank the CERN theoretical department for the hospitality at differen
 \label{app:analytics}
 Here we provide the analytic ingredients that enter the computation of the gluon purities in the collinear limit discussed in Sec.~\ref{sec:analytics}. We focus on the grooming setup since the results are, at $\mathcal{O}(\alpha_s)$, independent of the jet $p_t$ and can thus be computed fully analytically. 
 
-The starting point is the Altarelli-Parisi splitting functions, $P_{ab}(z)$, that read:
-\begin{align}
+The starting point is the Altarelli-Parisi splitting functions,
+$P_{ab}(z)$, that read:
+\begin{subequations}
 \label{eq:ap}
-P_{qq}(z) & = C_F\,\frac{1+z^2}{1-z}, \quad P_{gq}(z) = C_F\,\frac{1+(1-z)^2}{z}, \nonumber \\
-P_{qg}(z) & = T_f\,[z^2+(1-z)^2], \quad P_{gg}(z) = 2\,C_A\Big[\frac{1-z}{z} + \frac{z}{1-z} + z(1-z)\Big],
+\begin{align}
+P_{qq}(z) & = C_F\,\frac{1+z^2}{1-z}, & P_{gq}(z) & = C_F\,\frac{1+(1-z)^2}{z},  \\
+P_{qg}(z) & = T_f\,[z^2+(1-z)^2],     & P_{gg}(z) & = 2\,C_A\Big[\frac{1-z}{z} + \frac{z}{1-z} + z(1-z)\Big],
 \end{align}
+\end{subequations}
 where the standard QCD parameters are $C_F=4/3$, $C_A=3$, $T_R=1/2$, $T_f=T_R\,n_f$ and the number of flavours is set to $n_f=5$.
 The gluon purity, Eq.~\eqref{eq:g-frac-collinear-groom}, is then obtained by integrating these splitting functions between some $z_{\rm min}$ and some $z_{\rm max}$ (see Eq.~\eqref{eq:int-Pab}). These integrals, that we have denoted $I_{ab}^{\rm (groom)}$ in the main text, are given by:
-\begin{align}
+\begin{subequations}
 \label{eq:Iab}
+\begin{align}
 I^{(\rm groom)}_{qq} & = C_F\,\Big[2\ln\frac{1-\zmin}{1-\zmax}-(\zmax-\zmin)\Big(1+\frac{\zmax+\zmin}{2}\Big)\Big],  \\
 I^{(\rm groom)}_{gq} & = 2\,C_F\, \Big[\ln\frac{\zmax}{\zmin}-(\zmax-\zmin)\Big(1-\frac{\zmax+\zmin}{4}\Big)\Big],  \\
 I^{(\rm groom)}_{qg} & = \frac{2\,T_f}{3} \,[\zmax^3-\zmin^3+(1-\zmin)^3-(1-\zmax)^3],\\ 
-I^{(\rm groom)}_{gg} & = 2\,C_A \Big[\ln\frac{\zmax(1-\zmin)}{\zmin(1-\zmax)}-2(\zmax-\zmin) + \frac{\zmax^2-\zmin^2}{2} - \frac{\zmax^3-\zmin^3}{3}\Big]
+I^{(\rm groom)}_{gg} & = 2\,C_A \Big[\ln\frac{\zmax(1\!-\!\zmin)}{\zmin(1\!-\!\zmax)}\!-\!2(\zmax\!-\!\zmin) + \frac{\zmax^2\!-\!\zmin^2}{2} \!-\! \frac{\zmax^3\!-\!\zmin^3}{3}\Big],
 \end{align}
+\end{subequations}
 where we have assumed that $z_{\rm min}<z_{\rm max}$.
 \section{First-principles estimates for the gluon purities using small-$R$ jets}
 \label{app:small-R}

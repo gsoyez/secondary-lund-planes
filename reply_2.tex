@@ -173,8 +173,7 @@ We would like to thank the referee for their positive assessment of our work and
 \noindent {\bf Detailed answers to the Referee:}
 \vspace{0.3cm}
 
-\noindent \textit{1. Footnote 2 and first full paragraph of page 2:
-The authors discuss the degeneracy between αs and the quark/gluon fraction of a sample. They mention a few techniques for eliminating this but do not mention recent efforts to define an IRC safe notion of jet flavor. There is some hint of this in footnote 2, but the definition they present there of “gluon-enrichment” is effectively verbatim copied from the Les Houches study of Refs. [8,9] and is almost devoid of any technical meaning. For a paper whose goal is to enrich a jet sample with “gluon” jets, the authors must provide a precise, quantifiable definition of “gluon” jet so that the results that follow can be interpreted in that context.}
+\noindent \textit{1. Footnote 2 and first full paragraph of page 2: The authors discuss the degeneracy between $\alpha_s$ and the quark/gluon fraction of a sample. They mention a few techniques for eliminating this but do not mention recent efforts to define an IRC safe notion of jet flavor. There is some hint of this in footnote 2, but the definition they present there of “gluon-enrichment” is effectively verbatim copied from the Les Houches study of Refs. [8,9] and is almost devoid of any technical meaning. For a paper whose goal is to enrich a jet sample with “gluon” jets, the authors must provide a precise, quantifiable definition of “gluon” jet so that the results that follow can be interpreted in that context.}
 \\
 \\
 We have extended footnote 2 to include a reference to recent flavour-aware clustering algorithms. We also discuss more extensively the question of gluon-jet definition in the context of question 6 (see below).
@@ -194,17 +193,28 @@ We agree that the initial formulation was unclear and overstated. For any observ
 We agree with the referee’s suggestion and have added appendix A with the expressions. 
 \\
 
-\noindent\textit{4. Figure 2 is slightly confusing to me. I would naively expect that the exact order-αs result should always lie between the limits of pure quark and pure gluon, but that does not seem to be the case in all examples. Could the authors provide an explanation as to what might be happening here? Is this simply that the collinear approximation is of limited accuracy? I guess this might be related to the selection of the angular parameters $\Delta$ and $\Delta R$ in the left and central columns of this figure. $\Delta>0.8$ and $\Delta R\sim1$ seems rather large for a collinear approximation, I assume.}
+\noindent\textit{4. Figure 2 is slightly confusing to me. I would naively expect that the exact order-$\alpha_s$ result should always lie between the limits of pure quark and pure gluon, but that does not seem to be the case in all examples. Could the authors provide an explanation as to what might be happening here? Is this simply that the collinear approximation is of limited accuracy? I guess this might be related to the selection of the angular parameters $\Delta$ and $\Delta R$ in the left and central columns of this figure. $\Delta>0.8$ and $\Delta R\sim1$ seems rather large for a collinear approximation, I assume.}
 \\
 \\
 We thank the referee for pointing this out. The original version of this figure had in fact a bug in the collinear result for the dijet setup since they were generated with an older version of the code in which we did not integrate over the jet cross-section. In the new version of the figure, we find that indeed the exact result lies in between the collinear results in most cases. However, in some cases, see e.g. the $z_{\rm max}$ dependence in the groomed setup, the envelope created by the collinear results does not contain the exact result. We agree with the referee on the fact that the collinear limit, albeit a good approximation, is of limited accuracy for the selected angular parameters.  Note that we picked these values in order to match the MC plots. We have repeated this exercise for smaller jet radii and found that indeed the exact result always lies between the limits of pure quark and pure gluon. The results are discussed in Appendix B.  
 \\
 
-\noindent\textit{5. Another issue I see that isn’t addressed by the authors is the following. As they explain well, sufficiently soft emissions off of the initial particle are $\sim 90\%$ gluons (at least at leading-order). However, restricting to relatively soft emissions, on the order of $10−20\%$ of the jet $p_T$​, means that high-energy gluon jets cannot be selected with this procedure (say, gluon jets at $p_T\sim$​ TeV). Within this framework, how can such high-energy gluons be identified? This would seem to be very relevant to understand the fragmentation of such high-energy jets. It would be helpful for the authors to discuss the limitations of this method, as well.
-}
+\noindent\textit{5. Another issue I see that isn’t addressed by the
+  authors is the following. As they explain well, sufficiently soft
+  emissions off of the initial particle are $\sim 90\%$ gluons (at
+  least at leading order). However, restricting to relatively soft
+  emissions, on the order of $10-20\%$ of the jet $p_T$,means that
+  high-energy gluon jets cannot be selected with this procedure (say,
+  gluon jets at $p_T\sim$~TeV). Within this framework, how can such
+  high-energy gluons be identified? This would seem to be very
+  relevant to understand the fragmentation of such high-energy jets.
+  It would be helpful for the authors to discuss the limitations of
+  this method, as well.}
 \\
-\\
-We agree with the referee on the kinematic limitations of the dijet selection. We have added a short paragraph in the conclusions highlighting the limitations of the method when discussing MC tuning opportunities:
+We agree with the referee on the kinematic limitations of the dijet
+selection. We have added a short paragraph in the conclusions
+highlighting the limitations of the method when discussing MC tuning
+opportunities:
 \\
 
 ``One should note that the dijet selection we propose necessarily sets a kinematic upper bound on the hardness of the softer jet. Thus, a limitation of the method is that it is not possible to obtain gluon-rich
@@ -218,6 +228,9 @@ of gluon jet radiation at higher momenta.''
 \\
 \\
 We have modified the end of the introduction to clarify that our approach is a two-step one (paragraph starting with ``With this generic picture in mind, ...''). In a first instance (section 2), we introduce novel methods to produce a gluon-enriched jet sample. This statement can be made independently of a “precise” definition of what we mean exactly by a gluon jet. We illustrate this at leading order.  In a second step, with our selection procedure, we study (section 3) the secondary Lund plane density as an observable that one can measure to characterise the radiation pattern in a gluon-enriched sample. To address the referee’s concern and bridge the gap between Sections 2 and 3 we have added all-orders results by the end of section 2.2 (starting from ``We end up this discussion..''). The latter are obtained by running a flavour-aware jet algorithm on parton-level Monte Carlo events. We see order $10\%$ variations with respect to the leading order estimate of the extracted gluon fractions. However, besides the precise numbers, they key point is that our proposed selection produces a gluon-enriched sample.
+%
+Finally, we have specified explicitly in the abstract that the quoted
+$90\%$ gluon purity corresponsd to a Born-level estimate.
 \\
 
 \noindent\textit{7. Figure 4: This is a nice consistency check, but I’m not convinced that the agreement of these curves is because they are effectively the same jets. Have the authors made the corresponding distributions with the quark-enriched sample, $qq\to qq$? Does this exhibit significant differences? Showing such a plot would make the authors’ case much more strongly.}
@@ -264,7 +277,12 @@ We have fixed this.
 We have some representative references.
 \\
 
-\noindent\textit{12. After Eq. 2.7: The authors mention Altarelli-Parisi splitting functions but neither provide references nor simply write them down. Correspondingly, the authors do not mention the number of active quark flavors that they use in their calculations (presumably, $n_f=5$). Similarly, I do not think the authors define $C_F$​ and $C_A$​, even though in general they are well known.}
+\noindent\textit{12. After Eq. 2.7: The authors mention
+  Altarelli-Parisi splitting functions but neither provide references
+  nor simply write them down. Correspondingly, the authors do not
+  mention the number of active quark flavors that they use in their
+  calculations (presumably, $n_f=5$). Similarly, I do not think the
+  authors define $C_F$ and $C_A$, even though in general they are well known.}
 \\
 \\
 We have incorporated the definition of the Altarelli-Parisi splitting functions together with our values for the QCD parameters in Appendix A.
